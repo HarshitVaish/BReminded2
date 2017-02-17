@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.breminded.R;
 import com.example.android.breminded.data.BirthdayContract;
@@ -30,11 +31,13 @@ public class AddNewFragment extends Fragment {
     AppCompatSpinner spinnerGroup;
     String[] list = {"Friend", "Family", "Office", "Acquaintance"};
     String group;
+    MyDatabase dB;
     int mYear, mMonth, mDay;
     Button selectDate, saveButton, resetButton;
     TextView textViewDate;
     EditText editTextName, editTextPhone, editTextMessage;
     ArrayAdapter arrayAdapter;
+    String strMonth,strDay,strYear,modifiedMonth;
 
     public AddNewFragment() {
         // Required empty public constructor
@@ -46,6 +49,8 @@ public class AddNewFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_add_new, null);
+        dB = new MyDatabase(getActivity());
+
         spinnerGroup = (AppCompatSpinner) v.findViewById(R.id.spinnergroup);
         selectDate = (Button) v.findViewById(R.id.button_select_date);
         textViewDate = (TextView) v.findViewById(R.id.text_view_date);
@@ -83,9 +88,11 @@ public class AddNewFragment extends Fragment {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                                String strMonth = String.valueOf(month), strDay = String.valueOf(day), strYear = String.valueOf(year);
+                                 strMonth = String.valueOf(month+1);
+                                strDay = String.valueOf(day);
+                                strYear = String.valueOf(year);
 
-                                if (month < 10) {
+                                if (month < 9) {
                                     strMonth = "0" + strMonth;
                                 }
 
@@ -98,7 +105,6 @@ public class AddNewFragment extends Fragment {
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
-                String group=(String)spinnerGroup.getSelectedItem();
 
             }
         });
@@ -106,14 +112,27 @@ public class AddNewFragment extends Fragment {
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               resetValues();
-                 }
+                resetValues();
+            }
         });
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                resetValues();
-            }
+                String getName = editTextName.getText().toString();
+                String getDate = /*strDay+"/"+strMonth;*/textViewDate.getText().toString();
+                String group = (String) spinnerGroup.getSelectedItem();
+                String phone = editTextPhone.getText().toString();
+                String message=editTextMessage.getText().toString();
+                if(getName.equalsIgnoreCase("")||getDate.equalsIgnoreCase("")||group.equalsIgnoreCase("")||phone.equalsIgnoreCase("")||message.equalsIgnoreCase("")){
+                    Toast.makeText(getActivity(),"All Fields are Mandatory",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                long result=dB.addBirthdays(getName,getDate,group,message,phone);
+                if(result>-1){
+                    Toast.makeText(getActivity(), "New Birthday Added !", Toast.LENGTH_SHORT).show();
+                    resetValues();
+                }}
+                 }
         });
 
         // Inflate the layout for this fragment
@@ -129,5 +148,3 @@ public class AddNewFragment extends Fragment {
     }
 
 }
-
-

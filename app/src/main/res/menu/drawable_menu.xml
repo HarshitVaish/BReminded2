@@ -2,73 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/item_saved_birthdays"
-        android:checkable="true"
+        android:checkable="false"
         android:icon="@mipmap/ic_launcher"
         android:title="Saved Birthdays" />
     <item
         android:id="@+id/item_settings"
-        android:checkable="true"
+        android:checkable="false"
         android:icon="@mipmap/ic_launcher"
         android:title="Settings" />
-    <group android:id="@+id/group_2">
-        <item
-            android:id="@+id/item_3"
-            android:checkable="true"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Item 3" />
-        <item
-            android:id="@+id/item_4"
-            android:checkable="true"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Item 4" />
-    </group>
-    <item
-        android:id="@+id/group_3_header"
-        android:title="Mobile">
-        <menu>
-            <item
-                android:id="@+id/item_android"
-                android:checkable="true"
-                android:icon="@mipmap/ic_launcher"
-                android:title="Android" />
-            <item
-                android:id="@+id/item_iphone"
-                android:checkable="true"
-                android:icon="@mipmap/ic_launcher"
-                android:title="iPhone" />
-        </menu>
-    </item>
-    <item
-        android:id="@+id/group_4_header"
-        android:title="Web">
-        <menu>
-            <item
-                android:id="@+id/item_html"
-                android:checkable="true"
-                android:icon="@mipmap/ic_launcher"
-                android:title="HTML" />
-            <item
-                android:id="@+id/item_css"
-                android:checkable="true"
-                android:icon="@mipmap/ic_launcher"
-                android:title="CSS" />
-        </menu>
-    </item>
-    <item
-        android:id="@+id/group_5_header"
-        android:title="Backend">
-        <menu>
-            <item
-                android:id="@+id/item_php"
-                android:checkable="true"
-                android:icon="@mipmap/ic_launcher"
-                android:title="PHP" />
-            <item
-                android:id="@+id/item_ruby"
-                android:checkable="true"
-                android:icon="@mipmap/ic_launcher"
-                android:title="Ruby On Rails" />
-        </menu>
-    </item>
+  
 </menu>
 

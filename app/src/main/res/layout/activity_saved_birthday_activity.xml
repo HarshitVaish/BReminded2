@@ -3,24 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.breminded.SavedBirthdayActivity">
+    tools:context=".ui.SavedBirthdayActivity">
+
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
     <ListView
-        android:layout_below="@id/toolbar"
-        android:id="@+id/list_view_saved_Birthday"
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/all_birthday_list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
+
     <Button
         android:id="@+id/button_back"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:text="Back"/>
-
+        android:layout_alignParentEnd="true"
+        android:text="Back" />
 
 
 </RelativeLayout>

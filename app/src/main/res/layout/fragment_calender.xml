@@ -5,7 +5,10 @@
     tools:context="com.example.android.breminded.ui.landing.CalenderFragment">
 
     <CalendarView
+        android:id="@+id/calender_view_birthday"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/><!-- TODO: Update blank fragment layout -->
+        android:layout_height="match_parent"
+
+        /><!-- TODO: Update blank fragment layout -->
 
 </FrameLayout>

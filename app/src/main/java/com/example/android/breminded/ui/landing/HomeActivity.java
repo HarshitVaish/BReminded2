@@ -18,8 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.android.breminded.R;
-import com.example.android.breminded.SavedBirthdayActivity;
-import com.example.android.breminded.SavedBirthdaysFragment;
+import com.example.android.breminded.ui.SavedBirthdayActivity;
 
 public class HomeActivity extends AppCompatActivity {
 public static final int REQ_CODE1=1;
@@ -124,7 +123,7 @@ public static final int REQ_CODE1=1;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.drawable_menu, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
